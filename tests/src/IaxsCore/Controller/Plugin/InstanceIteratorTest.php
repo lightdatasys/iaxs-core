@@ -54,7 +54,7 @@ extends PHPUnit_Framework_TestCase
 
 	/**
 	 * @covers \IaxsCore\Controller\Plugin\InstanceIterator::getEventManager
-	 * @expectedException \IaxsCore\Controller\Exception\NullPointerException
+	 * @expectedException \IaxsCore\Exception\NullPointerException
 	 */
 	public function testRetrievingEventManagerBeforeItIsProvidedCausesAnException()
 	{
@@ -95,7 +95,7 @@ extends PHPUnit_Framework_TestCase
 
 	/**
 	 * @covers \IaxsCore\Controller\Plugin\InstanceIterator::getServiceLocator
-	 * @expectedException \IaxsCore\Controller\Exception\NullPointerException
+	 * @expectedException \IaxsCore\Exception\NullPointerException
 	 */
 	public function testRetrievingServiceLocatorBeforeItIsProvidedCausesAnException()
 	{
@@ -214,7 +214,7 @@ extends PHPUnit_Framework_TestCase
 
 	/**
 	 * @covers \IaxsCore\Controller\Plugin\InstanceIterator::iterate
-	 * @expectedException \IaxsCore\Controller\Exception\InvalidArgumentException
+	 * @expectedException \IaxsCore\Exception\InvalidArgumentException
 	 */
 	public function testPassingInvalidCallableToIterateCausesAnException()
 	{
