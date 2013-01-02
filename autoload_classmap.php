@@ -3,11 +3,11 @@
 return array(
     'IaxsCore\Controller\Plugin\InstanceIterator'                => __DIR__ . '/src/IaxsCore/Controller/Plugin/InstanceIterator.php',
     'IaxsCore\Controller\Event\IterationEvent'                   => __DIR__ . '/src/IaxsCore/Controller/Event/IterationEvent.php',
-    'IaxsCore\Controller\Exception\InvalidArgumentException'     => __DIR__ . '/src/IaxsCore/Controller/Exception/InvalidArgumentException.php',
-    'IaxsCore\Controller\Exception\NullPointerException'         => __DIR__ . '/src/IaxsCore/Controller/Exception/NullPointerException.php',
     'IaxsCore\Entity\InstanceInterface'                          => __DIR__ . '/src/IaxsCore/Entity/InstanceInterface.php',
     'IaxsCore\Entity\InstanceIterator\ArrayInstanceIterator'     => __DIR__ . '/src/IaxsCore/Entity/InstanceIterator/ArrayInstanceIterator.php',
     'IaxsCore\Entity\InstanceIterator\InstanceIteratorInterface' => __DIR__ . '/src/IaxsCore/Entity/InstanceIterator/InstanceIteratorInterface.php',
     'IaxsCore\Service\InstanceAwareInterface'                    => __DIR__ . '/src/IaxsCore/Service/InstanceAwareInterface.php',
     'IaxsCore\Service\ServiceManager'                            => __DIR__ . '/src/IaxsCore/Service/ServiceManager.php',
+    'IaxsCore\Exception\InvalidArgumentException'                => __DIR__ . '/src/IaxsCore/Exception/InvalidArgumentException.php',
+    'IaxsCore\Exception\NullPointerException'                    => __DIR__ . '/src/IaxsCore/Exception/NullPointerException.php',
 );

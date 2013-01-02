@@ -12,9 +12,9 @@ namespace IaxsCore\Controller\Plugin;
 
 
 use IaxsCore\Controller\Event\IterationEvent;
-use IaxsCore\Controller\Exception;
 use IaxsCore\Entity\InstanceInterface;
 use IaxsCore\Entity\InstanceIterator\InstanceIteratorInterface;
+use IaxsCore\Exception;
 use IaxsCore\Service\InstanceAwareInterface;
 
 use Zend\EventManager\EventManagerInterface;
