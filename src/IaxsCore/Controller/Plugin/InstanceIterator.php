@@ -88,7 +88,7 @@ implements
 
 		$callback_handler = null;
 		if($callable) {
-			$callback_handler = $event_manager->attach(IterationEvent::EVENT_ITERATE, $callable);
+			$callback_handler = $event_manager->attach(IterationEvent::EVENT_ITERATION, $callable);
 		}
 
 		foreach($iterator as $instance) {
@@ -105,9 +105,9 @@ implements
 				$contextual_service_locator->setInstance($instance);
 			}
 
-			$event_manager->trigger(IterationEvent::EVENT_ITERATE_PRE,  $event);
-			$event_manager->trigger(IterationEvent::EVENT_ITERATE,      $event);
-			$event_manager->trigger(IterationEvent::EVENT_ITERATE_POST, $event);
+			$event_manager->trigger(IterationEvent::EVENT_ITERATION_PRE,  $event);
+			$event_manager->trigger(IterationEvent::EVENT_ITERATION,      $event);
+			$event_manager->trigger(IterationEvent::EVENT_ITERATION_POST, $event);
 
 			// the service shouldn't be associated with the instance once the
 			// iteration is over
