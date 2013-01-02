@@ -12,6 +12,9 @@
 	"autoload": {
 		"psr-0": {
 			"IaxsCore\\": "src/"
-		}
+		},
+		"classmap": [
+			"./Module.php"
+		]
 	}
 }
