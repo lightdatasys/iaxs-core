@@ -88,6 +88,8 @@ extends AbstractPlugin
 			$callback_handler = $event_manager->attach(IteratorEvent::EVENT_ITERATION, $callable);
 		}
 
+		$event_manager->trigger(IteratorEvent::EVENT_ITERATE_PRE,  $event);
+
 		foreach($iterator as $instance) {
 			$event->setInstance($instance);
 
@@ -112,6 +114,8 @@ extends AbstractPlugin
 				$contextual_service_locator->setInstance(null);
 			}
 		}
+
+		$event_manager->trigger(IteratorEvent::EVENT_ITERATE_POST,  $event);
 
 		if($callback_handler) {
 			$event_manager->detach($callback_handler);

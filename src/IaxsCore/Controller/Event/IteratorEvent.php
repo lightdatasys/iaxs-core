@@ -29,6 +29,9 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 class IteratorEvent
 extends Event
 {
+	const EVENT_ITERATE_PRE       = 'iaxs.core.iterate.pre';
+	const EVENT_ITERATE_POST      = 'iaxs.core.iterate.post';
+
 	const EVENT_ITERATION_PRE     = 'iaxs.core.iteration.pre';
 	const EVENT_ITERATION         = 'iaxs.core.iteration';
 	const EVENT_ITERATION_POST    = 'iaxs.core.iteration.post';
