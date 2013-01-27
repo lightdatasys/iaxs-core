@@ -40,19 +40,6 @@ extends PHPUnit_Framework_TestCase
 
 
 	/**
-	 * @covers \IaxsCore\Controller\Plugin\InstanceIterator
-	 */
-	public function testPluginIsEventManagerAware()
-	{
-		$this->assertInstanceOf(
-			'\Zend\EventManager\EventManagerAwareInterface',
-			$this->_plugin
-		);
-	}
-
-
-
-	/**
 	 * @covers \IaxsCore\Controller\Plugin\InstanceIterator::getEventManager
 	 * @expectedException \IaxsCore\Exception\NullPointerException
 	 */
@@ -60,6 +47,26 @@ extends PHPUnit_Framework_TestCase
 	{
 		$plugin = new InstanceIterator();
 		$plugin->getEventManager();
+	}
+
+
+
+	/**
+	 * @covers \IaxsCore\Controller\Plugin\InstanceIterator::getEventManager
+	 */
+	public function testEventManagerCanBeRetrievedFromController()
+	{
+		$this->_controller
+			->expects($this->any())
+			->method('getEventManager')
+			->will($this->returnValue($this->_event_manager));
+		$plugin = new InstanceIterator();
+		$plugin->setController($this->_controller);
+
+		$this->assertSame(
+			$this->_event_manager,
+			$plugin->getEventManager()
+		);
 	}
 
 
@@ -81,19 +88,6 @@ extends PHPUnit_Framework_TestCase
 
 
 	/**
-	 * @covers \IaxsCore\Controller\Plugin\InstanceIterator
-	 */
-	public function testPluginIsServiceLocatorAware()
-	{
-		$this->assertInstanceOf(
-			'\Zend\ServiceManager\ServiceLocatorAwareInterface',
-			$this->_plugin
-		);
-	}
-
-
-
-	/**
 	 * @covers \IaxsCore\Controller\Plugin\InstanceIterator::getServiceLocator
 	 * @expectedException \IaxsCore\Exception\NullPointerException
 	 */
@@ -101,6 +95,26 @@ extends PHPUnit_Framework_TestCase
 	{
 		$plugin = new InstanceIterator();
 		$plugin->getServiceLocator();
+	}
+
+
+
+	/**
+	 * @covers \IaxsCore\Controller\Plugin\InstanceIterator::getServiceLocator
+	 */
+	public function testServiceLocatorCanBeRetrievedFromController()
+	{
+		$this->_controller
+			->expects($this->any())
+			->method('getServiceLocator')
+			->will($this->returnValue($this->_service_locator));
+		$plugin = new InstanceIterator();
+		$plugin->setController($this->_controller);
+
+		$this->assertSame(
+			$this->_service_locator,
+			$plugin->getServiceLocator()
+		);
 	}
 
 
