@@ -5,7 +5,7 @@ namespace IaxsCore\Controller\Plugin;
 
 use PHPUnit_Framework_TestCase;
 
-use IaxsCore\Controller\Event\IterationEvent;
+use IaxsCore\Controller\Event\IteratorEvent;
 use IaxsCore\Entity\InstanceIterator\ArrayInstanceIterator;
 use IaxsCore\Service\ServiceManager;
 
@@ -145,42 +145,42 @@ extends PHPUnit_Framework_TestCase
 			->expects($this->at(0))
 			->method('trigger')
 			->with(
-				$this->equalTo(IterationEvent::EVENT_ITERATION_PRE),
+				$this->equalTo(IteratorEvent::EVENT_ITERATION_PRE),
 				$this->anything()
 			);
 		$event_manager
 			->expects($this->at(1))
 			->method('trigger')
 			->with(
-				$this->equalTo(IterationEvent::EVENT_ITERATION),
+				$this->equalTo(IteratorEvent::EVENT_ITERATION),
 				$this->anything()
 			);
 		$event_manager
 			->expects($this->at(2))
 			->method('trigger')
 			->with(
-				$this->equalTo(IterationEvent::EVENT_ITERATION_POST),
+				$this->equalTo(IteratorEvent::EVENT_ITERATION_POST),
 				$this->anything()
 			);
 		$event_manager
 			->expects($this->at(3))
 			->method('trigger')
 			->with(
-				$this->equalTo(IterationEvent::EVENT_ITERATION_PRE),
+				$this->equalTo(IteratorEvent::EVENT_ITERATION_PRE),
 				$this->anything()
 			);
 		$event_manager
 			->expects($this->at(4))
 			->method('trigger')
 			->with(
-				$this->equalTo(IterationEvent::EVENT_ITERATION),
+				$this->equalTo(IteratorEvent::EVENT_ITERATION),
 				$this->anything()
 			);
 		$event_manager
 			->expects($this->at(5))
 			->method('trigger')
 			->with(
-				$this->equalTo(IterationEvent::EVENT_ITERATION_POST),
+				$this->equalTo(IteratorEvent::EVENT_ITERATION_POST),
 				$this->anything()
 			);
 		$this->_plugin->setEventManager($event_manager);
@@ -212,9 +212,9 @@ extends PHPUnit_Framework_TestCase
 				);
 			}
 		};
-		$this->_event_manager->attach(IterationEvent::EVENT_ITERATION_PRE,  $listener);
-		$this->_event_manager->attach(IterationEvent::EVENT_ITERATION,      $listener);
-		$this->_event_manager->attach(IterationEvent::EVENT_ITERATION_POST, $listener);
+		$this->_event_manager->attach(IteratorEvent::EVENT_ITERATION_PRE,  $listener);
+		$this->_event_manager->attach(IteratorEvent::EVENT_ITERATION,      $listener);
+		$this->_event_manager->attach(IteratorEvent::EVENT_ITERATION_POST, $listener);
 
 		$instances      = array(
 			$this->getMock('\IaxsCore\Entity\InstanceInterface'),
@@ -257,7 +257,7 @@ extends PHPUnit_Framework_TestCase
 			null,
 			function($event) use ($test_case) {
 				$test_case->assertSame(
-					IterationEvent::EVENT_ITERATION,
+					IteratorEvent::EVENT_ITERATION,
 					$event->getName()
 				);
 			}

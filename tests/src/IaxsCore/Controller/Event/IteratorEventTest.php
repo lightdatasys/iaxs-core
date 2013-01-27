@@ -7,7 +7,7 @@ use PHPUnit_Framework_TestCase;
 
 
 
-class IterationEventTest
+class IteratorEventTest
 extends PHPUnit_Framework_TestCase
 {
 	protected $_event;
@@ -19,7 +19,7 @@ extends PHPUnit_Framework_TestCase
 
 	protected function setUp()
 	{
-		$this->_event           = new IterationEvent();
+		$this->_event           = new IteratorEvent();
 		$this->_controller      = $this
 			->getMock('\Zend\Mvc\Controller\AbstractController');
 		$this->_instance        = $this
@@ -31,9 +31,9 @@ extends PHPUnit_Framework_TestCase
 
 
 	/**
-	 * @covers \IaxsCore\Controller\Event\IterationEvent
+	 * @covers \IaxsCore\Controller\Event\IteratorEvent
 	 */
-	public function testIterationEventIsZendEvent()
+	public function testIteratorEventIsZendEvent()
 	{
 		$this->assertInstanceOf(
 			'\Zend\EventManager\Event',
@@ -44,8 +44,8 @@ extends PHPUnit_Framework_TestCase
 
 
 	/**
-	 * @covers \IaxsCore\Controller\Event\IterationEvent::setController
-	 * @covers \IaxsCore\Controller\Event\IterationEvent::getController
+	 * @covers \IaxsCore\Controller\Event\IteratorEvent::setController
+	 * @covers \IaxsCore\Controller\Event\IteratorEvent::getController
 	 */
 	public function testEventStoresControllerProperly()
 	{
@@ -59,8 +59,8 @@ extends PHPUnit_Framework_TestCase
 
 
 	/**
-	 * @covers \IaxsCore\Controller\Event\IterationEvent::setInstance
-	 * @covers \IaxsCore\Controller\Event\IterationEvent::getInstance
+	 * @covers \IaxsCore\Controller\Event\IteratorEvent::setInstance
+	 * @covers \IaxsCore\Controller\Event\IteratorEvent::getInstance
 	 */
 	public function testEventStoresInstanceProperly()
 	{
@@ -74,8 +74,8 @@ extends PHPUnit_Framework_TestCase
 
 
 	/**
-	 * @covers \IaxsCore\Controller\Event\IterationEvent::setDefaultServiceLocator
-	 * @covers \IaxsCore\Controller\Event\IterationEvent::getDefaultServiceLocator
+	 * @covers \IaxsCore\Controller\Event\IteratorEvent::setDefaultServiceLocator
+	 * @covers \IaxsCore\Controller\Event\IteratorEvent::getDefaultServiceLocator
 	 */
 	public function testEventStoresDefaultServiceLocatorProperly()
 	{
@@ -89,8 +89,8 @@ extends PHPUnit_Framework_TestCase
 
 
 	/**
-	 * @covers \IaxsCore\Controller\Event\IterationEvent::setContextualServiceLocator
-	 * @covers \IaxsCore\Controller\Event\IterationEvent::getContextualServiceLocator
+	 * @covers \IaxsCore\Controller\Event\IteratorEvent::setContextualServiceLocator
+	 * @covers \IaxsCore\Controller\Event\IteratorEvent::getContextualServiceLocator
 	 */
 	public function testEventStoresContextualServiceLocatorProperly()
 	{

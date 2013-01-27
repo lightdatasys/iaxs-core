@@ -11,7 +11,7 @@ namespace IaxsCore\Controller\Plugin;
 
 
 
-use IaxsCore\Controller\Event\IterationEvent;
+use IaxsCore\Controller\Event\IteratorEvent;
 use IaxsCore\Entity\InstanceInterface;
 use IaxsCore\Entity\InstanceIterator\InstanceIteratorInterface;
 use IaxsCore\Exception;
@@ -78,14 +78,14 @@ extends AbstractPlugin
 		$event_manager   = $this->getEventManager();
 		$service_locator = $this->getServiceLocator();
 
-		$event           = new IterationEvent();
+		$event           = new IteratorEvent();
 		$event->setTarget($this);
 		$event->setController($this->getController());
 		$event->setDefaultServiceLocator($service_locator);
 
 		$callback_handler = null;
 		if($callable) {
-			$callback_handler = $event_manager->attach(IterationEvent::EVENT_ITERATION, $callable);
+			$callback_handler = $event_manager->attach(IteratorEvent::EVENT_ITERATION, $callable);
 		}
 
 		foreach($iterator as $instance) {
@@ -102,9 +102,9 @@ extends AbstractPlugin
 				$contextual_service_locator->setInstance($instance);
 			}
 
-			$event_manager->trigger(IterationEvent::EVENT_ITERATION_PRE,  $event);
-			$event_manager->trigger(IterationEvent::EVENT_ITERATION,      $event);
-			$event_manager->trigger(IterationEvent::EVENT_ITERATION_POST, $event);
+			$event_manager->trigger(IteratorEvent::EVENT_ITERATION_PRE,  $event);
+			$event_manager->trigger(IteratorEvent::EVENT_ITERATION,      $event);
+			$event_manager->trigger(IteratorEvent::EVENT_ITERATION_POST, $event);
 
 			// the service shouldn't be associated with the instance once the
 			// iteration is over
