@@ -35,9 +35,6 @@ use Zend\ServiceManager\ServiceLocatorInterface;
  */
 class InstanceIterator
 extends AbstractPlugin
-implements
-	EventManagerAwareInterface,
-	ServiceLocatorAwareInterface
 {
 	/**
 	 * The event manager to trigger the events on.
@@ -142,6 +139,12 @@ implements
 	 */
 	public function getEventManager()
 	{
+		if(null === $this->_event_manager
+			&& $this->getController() instanceof EventManagerAwareInterface
+		) {
+			$this->_event_manager = $this->getController()->getEventManager();
+		}
+
 		if(null === $this->_event_manager) {
 			throw new Exception\NullPointerException('Event manager not provided.');
 		}
@@ -170,6 +173,12 @@ implements
 	 */
 	public function getServiceLocator()
 	{
+		if(null === $this->_service_locator
+			&& $this->getController() instanceof ServiceLocatorAwareInterface
+		) {
+			$this->_service_locator = $this->getController()->getServiceLocator();
+		}
+
 		if(null === $this->_service_locator) {
 			throw new Exception\NullPointerException('Service locator not provided.');
 		}
